@@ -1,0 +1,24 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Quotation",
+  "enabled": 1,
+  "modified": "2023-07-02 18:36:56.912334",
+  "module": "sa_customization",
+  "name": "Quotation Item",
+  "script": "frappe.ui.form.on('Quotation', {\n\trefresh(frm) {\n\t\t// your code here\n\t}\n})\n\nfrappe.ui.form.on('Quotation Item', {\n\tcustom_qty(frm,cdt,cdn) {\n\t\t// your code here\n\t\tvar doc = locals[cdt][cdn];\n\t\tvar qty = doc.custom_qty\n\t    if(doc.num_of_months > 0 ){\n\t        qty = doc.custom_qty * doc.num_of_months\n\t    }\n\n\t\tfrappe.model.set_value(cdt,cdn,\"qty\",qty)\n\t},\n\tnum_of_months(frm,cdt,cdn) {\n\t\tvar doc = locals[cdt][cdn];\n\t\tvar qty = doc.custom_qty\n\t    if(doc.num_of_months >0 ){\n\t        qty = doc.custom_qty * doc.num_of_months\n\t    }\n\n\t\tfrappe.model.set_value(cdt,cdn,\"qty\",qty)\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Sales Invoice",
+  "enabled": 1,
+  "modified": "2023-07-02 18:37:07.507168",
+  "module": "sa_customization",
+  "name": "Sales Invoice Item",
+  "script": "frappe.ui.form.on('Quotation', {\n\trefresh(frm) {\n\t\t// your code here\n\t}\n})\n\nfrappe.ui.form.on('Sales Invoice Item', {\n\tcustom_qty(frm,cdt,cdn) {\n\t\t// your code here\n\t\tvar doc = locals[cdt][cdn];\n\t\tvar qty = doc.custom_qty\n\t    if(doc.num_of_months > 0 ){\n\t        qty = doc.custom_qty * doc.num_of_months\n\t    }\n\n\t\tfrappe.model.set_value(cdt,cdn,\"qty\",qty)\n\t},\n\tnum_of_months(frm,cdt,cdn) {\n\t\tvar doc = locals[cdt][cdn];\n\t\tvar qty = doc.custom_qty\n\t    if(doc.num_of_months >0 ){\n\t        qty = doc.custom_qty * doc.num_of_months\n\t    }\n\n\t\tfrappe.model.set_value(cdt,cdn,\"qty\",qty)\n\t}\n})",
+  "view": "Form"
+ }
+]
